@@ -40,3 +40,5 @@ jobs:
           tags: |
             ${{ secrets.ACR_REGISTRY }}/houhou/jimeng-free-api:latest
           labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
