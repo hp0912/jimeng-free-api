@@ -10,6 +10,8 @@ const DEFAULT_ASSISTANT_ID = "513695";
 export const DEFAULT_MODEL = "jimeng-3.0";
 const DRAFT_VERSION = "3.0.2";
 const MODEL_MAP = {
+  "jimeng-4.0": "high_aes_general_v40",
+  "jimeng-3.1": "high_aes_general_v30l_art_fangzhou:general_v3.0_18b",
   "jimeng-3.0": "high_aes_general_v30l:general_v3.0_18b",
   "jimeng-2.1": "high_aes_general_v21_L:general_v2.1_L",
   "jimeng-2.0-pro": "high_aes_general_v20_L:general_v2.0_L",
@@ -244,7 +246,7 @@ export async function generateImages(
       throw new APIException(EX.API_IMAGE_GENERATION_FAILED);
   }
   return item_list.map((item) => {
-    if(!item?.image?.large_images?.[0]?.image_url)
+    if (!item?.image?.large_images?.[0]?.image_url)
       return item?.common_attr?.cover_url || null;
     return item.image.large_images[0].image_url;
   });
