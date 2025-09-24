@@ -122,7 +122,6 @@ export async function generateImages(
                       id: util.uuid(),
                       height,
                       width,
-                      resolution_type: resolutionType,
                     },
                   },
                   history_option: {
