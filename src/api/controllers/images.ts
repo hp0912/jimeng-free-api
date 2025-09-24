@@ -32,15 +32,24 @@ export async function generateImages(
     height = 1024,
     sampleStrength = 0.5,
     negativePrompt = "",
+    resolutionType,
   }: {
     width?: number;
     height?: number;
     sampleStrength?: number;
     negativePrompt?: string;
+    resolutionType?: "2k" | "1k";
   },
   refreshToken: string
 ) {
   const model = getModel(_model);
+  if (!resolutionType) {
+    if (_model === "jimeng-4.0") {
+      resolutionType = "2k";
+    } else {
+      resolutionType = "1k";
+    }
+  }
   logger.info(`使用模型: ${_model} 映射模型: ${model} ${width}x${height} 精细度: ${sampleStrength}`);
 
   const { totalCredit } = await getCredit(refreshToken);
@@ -106,11 +115,14 @@ export async function generateImages(
                     seed: Math.floor(Math.random() * 100000000) + 2500000000,
                     sample_strength: sampleStrength,
                     image_ratio: 1,
+                    // 4.0 2560/1440 2k
+                    // 3.0 1664/936 1k
                     large_image_info: {
                       type: "",
                       id: util.uuid(),
                       height,
                       width,
+                      resolution_type: resolutionType,
                     },
                   },
                   history_option: {
@@ -132,7 +144,7 @@ export async function generateImages(
   if (!historyId)
     throw new APIException(EX.API_IMAGE_GENERATION_FAILED, "记录ID不存在");
   let status = 20, failCode, item_list = [];
-  while (status === 20) {
+  while (true) {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     const result = await request("post", "/mweb/v1/get_history_by_ids", refreshToken, {
       data: {
@@ -238,6 +250,11 @@ export async function generateImages(
     status = result[historyId].status;
     failCode = result[historyId].fail_code;
     item_list = result[historyId].item_list;
+    if (_model === "jimeng-4.0") {
+      if (status !== 42 && status !== 45) { break; }
+    } else {
+      if (status !== 20) { break; }
+    }
   }
   if (status === 30) {
     if (failCode === '2038')
