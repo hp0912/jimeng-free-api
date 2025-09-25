@@ -1,0 +1,18 @@
+curl 'https://jimeng.jianying.com/mweb/v1/aigc_draft/generate?aid=513695&device_platform=web&region=cn&webId=7516736548885825062&da_version=3.3.2&web_component_open_flag=1&web_version=7.5.0&aigc_features=app_lip_sync&msToken=7h5mM_wzdsnpKuttf8EEXXCx0GlWVKNhTHpuJZZuuTMY858F7YQdZjT73kg9-cEOrGb8bDcRdXKbDxRhF99aX72gjM7RChVSeoyMqTTDSWGxHgztNjsS63TzXxKep1I%3D&a_bogus=DjUODcZqMsm14WJdtwkz9HcVyjR0YW49gZENzWS3kzL4' \
+  -H 'appid: 513695' \
+  -H 'sec-ch-ua-platform: "macOS"' \
+  -H 'device-time: 1758782106' \
+  -H 'sec-ch-ua: "Chromium";v="140", "Not=A?Brand";v="24", "Google Chrome";v="140"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sign-ver: 1' \
+  -H 'loc: cn' \
+  -H 'app-sdk-version: 48.0.0' \
+  -H 'appvr: 5.8.0' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Content-Type: application/json' \
+  -H 'sign: 6b5d5e12320597e755e997001bd8f55b' \
+  -H 'Referer: https://jimeng.jianying.com/ai-tool/generate?type=image' \
+  -H 'lan: zh-Hans' \
+  -H 'pf: 7' \
+  -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36' \
+  --data-raw '{"extend":{"root_model":"high_aes_general_v40"},"submit_id":"b66637b2-ac17-48f0-af9c-135b2fd17554","metrics_extra":"{\"promptSource\":\"custom\",\"generateCount\":1,\"enterFrom\":\"click\",\"generateId\":\"b66637b2-ac17-48f0-af9c-135b2fd17554\",\"isRegenerate\":false}","draft_content":"{\"type\":\"draft\",\"id\":\"30f92e3c-32d6-b8ac-b399-6b7d575de422\",\"min_version\":\"3.0.2\",\"min_features\":[],\"is_from_tsn\":true,\"version\":\"3.3.2\",\"main_component_id\":\"f0152e3c-bd01-71ce-07bf-38af3e79befe\",\"component_list\":[{\"type\":\"image_base_component\",\"id\":\"f0152e3c-bd01-71ce-07bf-38af3e79befe\",\"min_version\":\"3.0.2\",\"aigc_mode\":\"workbench\",\"metadata\":{\"type\":\"\",\"id\":\"6beb3c64-f816-e2b2-92d1-03fc7006b986\",\"created_platform\":3,\"created_platform_version\":\"\",\"created_time_in_ms\":\"1758782106364\",\"created_did\":\"\"},\"generate_type\":\"generate\",\"abilities\":{\"type\":\"\",\"id\":\"72f4ba95-6691-817c-c4da-8870f276f951\",\"generate\":{\"type\":\"\",\"id\":\"8f6e6c1e-0f42-39a7-d001-a13cc88c226d\",\"core_param\":{\"type\":\"\",\"id\":\"ceaf2cb2-d568-2f06-b5cd-11e3a5370e89\",\"model\":\"high_aes_general_v40\",\"prompt\":\"白色的毛茸茸的小兔子\",\"negative_prompt\":\"\",\"seed\":4270823401,\"sample_strength\":0.5,\"image_ratio\":3,\"large_image_info\":{\"type\":\"\",\"id\":\"79830649-1219-10bf-f0a4-0405af3fea5d\",\"height\":1440,\"width\":2560,\"resolution_type\":\"2k\"},\"intelligent_ratio\":false}}}}]}","http_common_info":{"aid":513695}}'

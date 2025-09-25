@@ -250,7 +250,7 @@ export async function generateImages(
     failCode = result[historyId].fail_code;
     item_list = result[historyId].item_list;
     if (_model === "jimeng-4.0") {
-      if (status !== 0 && status !== 42 && status !== 45) { break; }
+      if (status !== 20 && status !== 42 && status !== 45) { break; }
     } else {
       if (status !== 20) { break; }
     }
